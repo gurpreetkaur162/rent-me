@@ -1,0 +1,73 @@
+{
+  "project_info": {
+    "project_number": "880247962750",
+    "firebase_url": "https://rent-me-641ef.firebaseio.com",
+    "project_id": "rent-me-641ef",
+    "storage_bucket": "rent-me-641ef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880247962750:android:b2101b6e65a0395a",
+        "android_client_info": {
+          "package_name": "com.example.gs.rentme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880247962750-uhl48415fs4se2eompldevfgga81hvt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRg8XsEw9ti2oXVvFVwkiFmtqHOkd-h-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:880247962750:android:af5e68493c4fb4be",
+        "android_client_info": {
+          "package_name": "com.example.mohitpal.rentme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "880247962750-uhl48415fs4se2eompldevfgga81hvt2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBRg8XsEw9ti2oXVvFVwkiFmtqHOkd-h-8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

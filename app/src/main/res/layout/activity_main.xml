@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.gs.rentme.MainActivity"
+    >
+
+   <ImageView
+       android:layout_width="match_parent"
+       android:layout_height="match_parent"
+       android:src="@drawable/layoutapp"
+       android:layout_centerInParent="true"
+       android:scaleType="centerCrop"
+
+       />
+ <View
+     android:layout_width="match_parent"
+     android:layout_height="match_parent"
+     android:background="#dcecd7d7"
+     />
+ <ImageView
+     android:layout_width="500dp"
+     android:layout_height="300dp"
+     android:src="@drawable/applogo"
+     android:layout_alignParentTop="true"
+
+     />
+
+
+ <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Already have an email account?"
+        android:layout_above="@+id/log_in"
+        android:textSize="15dp"
+        android:textColor="#000"
+        android:layout_marginLeft="79dp"
+        />
+<!-- <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="GOOGLE"
+     android:textStyle="bold"
+     android:textSize="15dp"
+     android:textColor="#000"
+     android:layout_marginLeft="60dp"
+     android:layout_below="@+id/g1"
+
+     />
+
+ <TextView
+     android:layout_width="wrap_content"
+     android:layout_height="wrap_content"
+     android:text="PHONE"
+     android:textStyle="bold"
+     android:textSize="15dp"
+     android:textColor="#000"
+     android:layout_marginLeft="280dp"
+     android:layout_below="@+id/p1"
+
+
+     />-->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Dont have an email account?Create now"
+        android:layout_above="@+id/sign_up"
+        android:textSize="15dp"
+        android:layout_marginTop="10dp"
+        android:textColor="#000"
+        android:layout_centerHorizontal="true"
+        />
+    <Button
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:text="LOGIN NOW"
+        android:textColor="#000"
+        android:layout_above="@+id/sign_up"
+        android:background="@drawable/background2"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginBottom="20dp"
+        android:onClick="login"
+        android:id="@+id/log_in"
+
+        />
+    <Button
+    android:layout_width="300dp"
+    android:layout_height="40dp"
+    android:text="sign up"
+    android:textColor="#000"
+    android:background="@drawable/background2"
+    android:layout_centerInParent="true"
+android:layout_marginBottom="20dp"
+        android:layout_alignParentBottom="true"
+        android:onClick="signup"
+    android:id="@+id/sign_up"
+
+    />
+
+<!-- <ImageButton
+     android:id="@+id/g1"
+     android:layout_width="60dp"
+     android:layout_height="60dp"
+     android:layout_marginLeft="60dp"
+     android:backgroundTint="#dceae4e4"
+     android:layout_marginTop="250dp"
+     app:srcCompat="@drawable/search"
+     android:onClick="google"/>
+
+ <ImageButton
+     android:id="@+id/p1"
+     android:layout_width="60dp"
+     android:layout_height="60dp"
+     android:layout_marginLeft="270dp"
+     android:backgroundTint="#dceae4e4"
+     android:layout_marginTop="250dp"
+     app:srcCompat="@drawable/smartphone"
+     android:onClick="phone"/>-->
+
+</RelativeLayout>
