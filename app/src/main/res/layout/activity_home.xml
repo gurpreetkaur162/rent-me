@@ -81,7 +81,7 @@
         android:layout_height="match_parent"
         android:orientation="vertical"
         android:background="#00ffffff"
-        android:layout_gravity="let">
+        android:layout_gravity="left">
 
 
         <RelativeLayout

@@ -1,9 +1,134 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".categories">
+    tools:context=".categories"
+    >
 
-</android.support.constraint.ConstraintLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/layoutapp"
+        android:scaleType="centerCrop"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="#dcecd7d7"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="1. Handicraft"
+            android:textSize="20dp"
+            android:id="@+id/handicraft"
+            android:padding="10dp"
+            />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="2. Accessories"
+            android:layout_below="@id/handicraft"
+            android:textSize="20dp"
+            android:padding="10dp"
+            android:id="@+id/accessories"
+            />
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="3. Sports"
+        android:layout_below="@id/accessories"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/sports"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="4. Electronic things"
+        android:layout_below="@id/sports"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/electronic"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="5. Household equipments"
+        android:layout_below="@id/electronic"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/household"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="6. Study material"
+        android:layout_below="@id/household"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/study"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="7. Bags"
+        android:layout_below="@id/study"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/bags"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="8. Toys"
+        android:layout_below="@id/bags"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/toys"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="9. Art"
+        android:layout_below="@id/toys"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:id="@+id/art"
+        />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10. Home Decor"
+        android:layout_below="@id/art"
+        android:textSize="20dp"
+        android:padding="10dp"
+        />
+
+
+
+</ScrollView>
+
+
+</RelativeLayout>
+
