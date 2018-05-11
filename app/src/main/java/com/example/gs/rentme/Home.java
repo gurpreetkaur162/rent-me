@@ -116,5 +116,9 @@ public class Home extends AppCompatActivity {
 
 
     public void Categories(View view) {
+
+        startActivity(new Intent(this, categories.class));
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
+
     }
 }

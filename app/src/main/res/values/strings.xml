@@ -16,4 +16,17 @@
     <string name="handshaking_description">handshaking description</string>
     <string name="clicking_description">clicking description</string>
 
+    <string-array name="categories_array">
+        <item>Handicraft</item>
+        <item>Accessories</item>
+        <item>Sports</item>
+        <item>Electronic things</item>
+        <item>Household equipments</item>
+        <item>Study material</item>
+        <item>Bags</item>
+        <item>Toys</item>
+        <item>Art</item>
+        <item>Home Decor</item>
+    </string-array>
+
 </resources>

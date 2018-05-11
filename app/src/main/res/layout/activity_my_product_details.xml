@@ -149,6 +149,39 @@
                     android:textSize="20dp"
                     android:textColor="#111"/>
             </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Available"
+                    android:id="@+id/available_btn"
+                    />
+
+                <RadioButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Not Available"
+                    android:id="@+id/not_available_btn"
+                    />
+
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="UPDATE"
+                    android:layout_marginLeft="10dp"
+                    android:background="@color/colorAccent"
+                    android:textColor="#fff"
+                    android:onClick="update_availability"
+
+                    />
+
+            </LinearLayout>
             <Button
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
