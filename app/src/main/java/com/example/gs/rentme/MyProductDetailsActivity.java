@@ -13,7 +13,9 @@ import android.widget.Gallery;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.example.gs.rentme.data_model.Product_detail;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
@@ -60,6 +62,18 @@ public class MyProductDetailsActivity extends AppCompatActivity {
         des.setText(getIntent().getStringExtra("productdescription"));
         quantity.setText(getIntent().getStringExtra("productquantity"));
         location.setText(getIntent().getStringExtra("productloc"));
+
+        if(getIntent().getStringExtra("availability").equals("yes"))
+        {
+            available_btn.setChecked(true);
+        }
+
+        if(getIntent().getStringExtra("availability").equals("no"))
+        {
+            available_btn.setChecked(true);
+        }
+
+
         Button delete = findViewById(R.id.delete);
         delete.setOnClickListener(new View.OnClickListener()
 
@@ -117,6 +131,43 @@ public class MyProductDetailsActivity extends AppCompatActivity {
 
     public void update_availability(View view) {
 
+        String available = "no";
+
+        if(available_btn.isChecked())
+        {
+            available = "yes";
+        }
+
+        if(not_available_btn.isChecked())
+        {
+            available = "no";
+        }
+
+        FirebaseAuth auth = FirebaseAuth.getInstance();
+
+        String email = auth.getCurrentUser().getEmail().replace(".", "");
+
+        FirebaseDatabase data = FirebaseDatabase.getInstance();
+
+
+
+        Product_detail dataModel = new Product_detail(getIntent().getStringExtra("productname") , getIntent().getStringExtra("productloc") ,
+                getIntent().getStringExtra("productprice") , getIntent().getStringExtra("productquantity") , getIntent().getStringExtra("producttype") ,
+                getIntent().getStringExtra("productdescription") , getIntent().getStringExtra("category") , available );
+
+
+        dataModel.images = getIntent().getStringExtra("images");
+
+        data.getReference().child("product").child(email).child(getIntent().getStringExtra("productname") + getIntent().getStringExtra("productloc")).setValue(dataModel).addOnCompleteListener(new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull Task<Void> task) {
+
+                if(task.isSuccessful())
+                {
+                    Toast.makeText(MyProductDetailsActivity.this , "availability updated" , Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
 
     }
 

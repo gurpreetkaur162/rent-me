@@ -52,6 +52,7 @@
                 android:layout_marginLeft="270dp"
 
                 android:src="@drawable/ic_search"
+                android:onClick="search"
                 />
 
         </LinearLayout>

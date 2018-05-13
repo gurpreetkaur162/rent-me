@@ -1,10 +1,13 @@
 package com.example.gs.rentme;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,55 +25,93 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class MyPoductsActivity extends AppCompatActivity {
-
-    private RecyclerView recyclerView ;
+public class SearchActivity extends AppCompatActivity {
 
     ArrayList<Product_detail> Product_list;
+
+    ArrayList<Product_detail> All_Product_list;
+
+    RecyclerView product_recycler;
+
+    private SearchView searchView ;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_poducts);
+        setContentView(R.layout.activity_search);
 
-        Product_list = new ArrayList<>();
+        searchView = findViewById(R.id.search_view);
 
-        recyclerView = findViewById(R.id.recycler);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                return false;
+            }
 
-        recyclerView.setLayoutManager(new LinearLayoutManager(this , LinearLayoutManager.VERTICAL , false));
+            @Override
+            public boolean onQueryTextChange(String newText) {
 
+                filter(newText);
+
+                return false;
+            }
+        });
+
+        Product_list = new ArrayList();
+
+        All_Product_list = new ArrayList<>();
+
+        product_recycler = findViewById(R.id.home_recycle);
+        product_recycler.setLayoutManager(new GridLayoutManager(SearchActivity.this , 2 , LinearLayoutManager.VERTICAL , false));
         get_product_list();
-
-
     }
+
+   
 
     private void get_product_list() {
 
+        final ProgressDialog pd = new ProgressDialog(SearchActivity.this);
+        pd.setTitle("Loading..");
+
+        pd.setMessage("Please wait");
+
+        pd.show();
+
         FirebaseAuth auth = FirebaseAuth.getInstance();
 
-        String email = auth.getCurrentUser().getEmail().replace("." , "");
+        final String email = auth.getCurrentUser().getEmail().replace("." , "");
 
         FirebaseDatabase data = FirebaseDatabase.getInstance();
         System.out.println("rrrr");
-        data.getReference().child("product").child(email).addValueEventListener(new ValueEventListener() {
+        data.getReference().child("product").addValueEventListener(new ValueEventListener() {
 
 
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 Product_list.clear();
 
+                pd.hide();
 
                 for (DataSnapshot data : dataSnapshot.getChildren()) {
 
+                    for (DataSnapshot data2 : data.getChildren()) {
+                        Product_detail details = data2.getValue(Product_detail.class);
 
-                        Product_detail details = data.getValue(Product_detail.class);
-                        System.out.println("rrrrrr");
-                        Product_list.add(details);
+                        details.email = data.getKey();
+
+                        if(! data.getKey().equals(email)) {
+
+                            if(details.availability.equals("yes"))
+                            {
+                                All_Product_list.add(details);
+                            }
+                        }
+
                         Adapter adapter = new Adapter();
 
-                        recyclerView.setAdapter(adapter);
-
+                        product_recycler.setAdapter(adapter);
+                    }
                 }
             }
 
@@ -81,17 +122,11 @@ public class MyPoductsActivity extends AppCompatActivity {
         });
     }
 
-    public void back(View view) {
-
-        finish();
-    }
-
-
     public class view_holder extends RecyclerView.ViewHolder {
 
         TextView product_price, product_name;
         LinearLayout product_lay;
-
+        ImageView product_img ;
 
         public view_holder(View itemView) {
             super(itemView);
@@ -99,6 +134,8 @@ public class MyPoductsActivity extends AppCompatActivity {
             product_name = itemView.findViewById(R.id.product_name);
             product_lay = itemView.findViewById(R.id.product_lay);
             product_price = itemView.findViewById(R.id.product_price);
+            product_img = itemView.findViewById(R.id.product_img);
+
 
         }
     }
@@ -108,7 +145,7 @@ public class MyPoductsActivity extends AppCompatActivity {
         @Override
         public view_holder onCreateViewHolder(ViewGroup parent, int viewType) {
 
-            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.my_product_cell, parent, false));
+            view_holder v = new view_holder(LayoutInflater.from(parent.getContext()).inflate(R.layout.product_cell, parent, false));
 
             return v;
         }
@@ -130,7 +167,7 @@ public class MyPoductsActivity extends AppCompatActivity {
                     String productloc = data.loc;
                     String productdescription = data.description;
 
-                    Intent i = new Intent(MyPoductsActivity.this, MyProductDetailsActivity.class);
+                    Intent i = new Intent(SearchActivity.this, Product_details.class);
                     i.putExtra("productname", productname);
                     i.putExtra("productprice", productprice);
                     i.putExtra("productloc", productloc);
@@ -138,11 +175,26 @@ public class MyPoductsActivity extends AppCompatActivity {
                     i.putExtra("producttype", producttype);
                     i.putExtra("productdescription", productdescription);
                     i.putExtra("images" , data.images);
-                    i.putExtra("category" , data.category);
-                    i.putExtra("availability" , data.availability);
+                    i.putExtra("email" , data.email);
                     startActivity(i);
                 }
             });
+
+            if(data.images.split(",").length > 0)
+            {
+                if(!data.images.split(",")[0].equals("")) {
+                    Picasso.get().load(data.images).into(holder.product_img);
+
+                }
+                else {
+                    Picasso.get().load(data.images.split(",")[1]).into(holder.product_img);
+                }
+            }
+
+            else {
+                Picasso.get().load(data.images).into(holder.product_img);
+
+            }
 
 
         }
@@ -152,4 +204,28 @@ public class MyPoductsActivity extends AppCompatActivity {
             return Product_list.size();
         }
     }
+
+
+    private void filter(String s)
+    {
+        Product_list.clear();
+
+        if(s.equals(""))
+        {
+
+            product_recycler.setAdapter(new Adapter());
+
+
+        }
+        for(Product_detail data : All_Product_list)
+        {
+            if(data.name.toLowerCase().contains(s.toLowerCase()))
+            {
+                Product_list.add(data);
+            }
+        }
+
+        product_recycler.setAdapter(new Adapter());
+    }
+
 }

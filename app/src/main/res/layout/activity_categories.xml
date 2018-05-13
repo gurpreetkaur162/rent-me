@@ -6,7 +6,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".categories"
+
     >
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentTop="true"
+        android:background="#dcecd7d7"/>
 
 <ScrollView
     android:layout_width="match_parent"
@@ -18,129 +24,263 @@
         >
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/handicraft"
+            android:padding="10dp"
+            android:background="#dcd58f8f">
 
 
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:src="@drawable/layoutapp"
-        android:scaleType="centerCrop"/>
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/handicraft"/>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentTop="true"
-        android:background="#dcecd7d7"/>
 
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="1. Handicraft"
+            android:text=" Handicraft"
             android:textSize="20dp"
-            android:id="@+id/handicraft"
             android:padding="10dp"
             android:onClick="handicraft"
             />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/handicraft"
+            android:id="@+id/accessories"
+            android:padding="10dp"
+            android:background="#dcd58f8f">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/accessories"/>
+
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="2. Accessories"
-            android:layout_below="@id/handicraft"
+            android:text="Accessories"
             android:textSize="20dp"
             android:padding="10dp"
-            android:id="@+id/accessories"
             android:onClick="accessories"
             />
 
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="330dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/accessories"
+            android:id="@+id/sports"
+            android:padding="10dp"
+            android:background="#dcd58f8f">
+
+
+           <ImageView
+               android:layout_width="45dp"
+               android:layout_height="45dp"
+               android:src="@drawable/sports"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="3. Sports"
-        android:layout_below="@id/accessories"
+        android:text="Sports"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/sports"
         android:onClick="sports"
         />
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:layout_below="@id/sports"
+            android:id="@+id/electronic"
+            android:background="#dcd58f8f">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/electronic"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="4. Electronic things"
-        android:layout_below="@id/sports"
+        android:text="Electronic things"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/electronic"
         android:onClick="electronic"
         />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="270dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/furniture"
+            android:layout_below="@id/electronic"
+            android:padding="10dp"
+            android:background="#dcd58f8f">
+
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/furniture"/>
+
+
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="5. Household equipments"
-        android:layout_below="@id/electronic"
+        android:text="Furniture"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/household"
         android:onClick="household"
         />
 
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/study"
+            android:layout_below="@id/furniture"
+            android:padding="10dp"
+            android:background="#dcd58f8f">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/study"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="6. Study material"
-        android:layout_below="@id/household"
+        android:text="Study material"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/study"
         android:onClick="study"
         />
 
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="230dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/bags"
+            android:layout_below="@id/study"
+            android:background="#dcd58f8f">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/bags"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="7. Bags"
-        android:layout_below="@id/study"
+        android:text="Bags"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/bags"
         android:onClick="bags"
         />
 
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/toys"
+            android:layout_below="@id/bags"
+            android:background="#dcd58f8f">
+
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/toys"/>
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="8. Toys"
-        android:layout_below="@id/bags"
+        android:text="Toys"
         android:textSize="20dp"
         android:padding="10dp"
-        android:id="@+id/toys"
         android:onClick="toys"
         />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="9. Art"
-        android:layout_below="@id/toys"
-        android:textSize="20dp"
-        android:padding="10dp"
-        android:id="@+id/art"
-        android:onClick="art"
-        />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="170dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/art"
+            android:layout_below="@id/toys"
+            android:background="#dcd58f8f">
+
+       <ImageView
+           android:layout_width="50dp"
+           android:layout_height="50dp"
+           android:src="@drawable/art"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10. Home Decor"
+        android:text="Art"
+        android:textSize="20dp"
+        android:padding="10dp"
+        android:onClick="art"
+        />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:id="@+id/home_decor"
+            android:layout_below="@id/art"
+            android:background="#dcd58f8f"
+            >
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/decor"/>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Home Decor"
         android:layout_below="@id/art"
         android:textSize="20dp"
         android:padding="10dp"
         android:onClick="home_decor"
         />
+
+        </LinearLayout>
 
 
     </RelativeLayout>

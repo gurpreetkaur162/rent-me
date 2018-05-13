@@ -121,4 +121,11 @@ public class Home extends AppCompatActivity {
         mDrawerLayout.closeDrawer(Gravity.LEFT);
 
     }
+
+    public void search(View view) {
+
+        startActivity(new Intent(this, SearchActivity.class));
+        mDrawerLayout.closeDrawer(Gravity.LEFT);
+
+    }
 }

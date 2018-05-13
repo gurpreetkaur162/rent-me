@@ -83,7 +83,11 @@ public class HomeFragment extends Fragment {
 
                         if(! data.getKey().equals(email)) {
 
-                            Product_list.add(details);
+                            if(details.availability.equals("yes"))
+                            {
+                                Product_list.add(details);
+                            }
+
                         }
 
                         Adapter adapter = new Adapter();

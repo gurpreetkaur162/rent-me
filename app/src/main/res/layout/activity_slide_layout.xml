@@ -37,9 +37,11 @@
         android:layout_height="wrap_content"
         style="@style/Base.Widget.AppCompat.Button.Borderless.Colored"
         android:text="CONTINUE"
+        android:textColor="#000"
         android:layout_gravity="right"
         android:textSize="20dp"
         android:onClick="skip"
+
 
         />
 

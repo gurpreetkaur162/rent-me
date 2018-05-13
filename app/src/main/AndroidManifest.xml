@@ -44,7 +44,8 @@
         <activity android:name=".walkthrough" />
         <activity android:name=".slide_layout" />
         <activity android:name=".categories" />
-        <activity android:name=".ViewCategoryProductActivity"></activity>
+        <activity android:name=".ViewCategoryProductActivity" />
+        <activity android:name=".SearchActivity"></activity>
     </application>
 
 </manifest>

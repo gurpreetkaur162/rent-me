@@ -17,30 +17,30 @@ public class SlideAdapter extends PagerAdapter {
 
     // list of images
     public int[] lst_images = {
-            R.drawable.chatting,
-            R.drawable.handshaking,
-            R.drawable.clicking
+            R.drawable.ic_home,
+            R.drawable.ic_chat,
+            R.drawable.ic_categories
 
     };
     // list of titles
     public String[] lst_title = {
-            "COSMONAUT",
-            "SATELITE",
-            "GALAXY"
+            "",
+            "",
+            ""
 
     }   ;
     // list of descriptions
     public String[] lst_description = {
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,",
-            "bablu,",
-            "lovepreet,"
+            "Rent near you,",
+            "Snap and post in 30 seconds,",
+            "Close deals faster with chat,"
 
     };
     // list of background colors
     public int[]  lst_backgroundcolor = {
-            Color.rgb(55,55,55),
-            Color.rgb(239,85,85),
-            Color.rgb(110,49,89)
+            R.drawable.handshaking,
+            R.drawable.clicking,
+            R.drawable.chatting,
 
     };
 
@@ -67,7 +67,7 @@ public class SlideAdapter extends PagerAdapter {
         ImageView imgslide = (ImageView)  view.findViewById(R.id.slideimg);
         TextView txttitle= (TextView) view.findViewById(R.id.txttitle);
         TextView description = (TextView) view.findViewById(R.id.txtdescription);
-        layoutslide.setBackgroundColor(lst_backgroundcolor[position]);
+        layoutslide.setBackgroundResource(lst_backgroundcolor[position]);
         imgslide.setImageResource(lst_images[position]);
         txttitle.setText(lst_title[position]);
         description.setText(lst_description[position]);
