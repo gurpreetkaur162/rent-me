@@ -12,6 +12,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+
+
+
 
     <ImageView
         android:layout_width="match_parent"
@@ -33,6 +40,7 @@
             android:textSize="20dp"
             android:id="@+id/handicraft"
             android:padding="10dp"
+            android:onClick="handicraft"
             />
 
         <TextView
@@ -43,6 +51,7 @@
             android:textSize="20dp"
             android:padding="10dp"
             android:id="@+id/accessories"
+            android:onClick="accessories"
             />
 
 
@@ -54,6 +63,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/sports"
+        android:onClick="sports"
         />
 
     <TextView
@@ -64,6 +74,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/electronic"
+        android:onClick="electronic"
         />
 
     <TextView
@@ -74,6 +85,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/household"
+        android:onClick="household"
         />
 
     <TextView
@@ -84,6 +96,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/study"
+        android:onClick="study"
         />
 
     <TextView
@@ -94,6 +107,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/bags"
+        android:onClick="bags"
         />
 
     <TextView
@@ -104,6 +118,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/toys"
+        android:onClick="toys"
         />
 
     <TextView
@@ -114,6 +129,7 @@
         android:textSize="20dp"
         android:padding="10dp"
         android:id="@+id/art"
+        android:onClick="art"
         />
 
     <TextView
@@ -123,11 +139,14 @@
         android:layout_below="@id/art"
         android:textSize="20dp"
         android:padding="10dp"
+        android:onClick="home_decor"
         />
 
 
+    </RelativeLayout>
 
 </ScrollView>
+
 
 
 </RelativeLayout>

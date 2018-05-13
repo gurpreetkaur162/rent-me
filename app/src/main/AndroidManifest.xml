@@ -43,7 +43,8 @@
         <activity android:name=".WelcomeActivity" />
         <activity android:name=".walkthrough" />
         <activity android:name=".slide_layout" />
-        <activity android:name=".categories"></activity>
+        <activity android:name=".categories" />
+        <activity android:name=".ViewCategoryProductActivity"></activity>
     </application>
 
 </manifest>

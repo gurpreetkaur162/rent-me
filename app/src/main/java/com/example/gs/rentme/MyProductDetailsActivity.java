@@ -11,6 +11,7 @@ import android.widget.BaseAdapter;
 import android.widget.Button;
 import android.widget.Gallery;
 import android.widget.ImageView;
+import android.widget.RadioButton;
 import android.widget.TextView;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,6 +28,8 @@ public class MyProductDetailsActivity extends AppCompatActivity {
 
     private ArrayList<String> url_list ;
 
+    RadioButton available_btn , not_available_btn ;
+
     Gallery gallery;
 
     @Override
@@ -35,6 +38,10 @@ public class MyProductDetailsActivity extends AppCompatActivity {
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_product_details);
+
+        available_btn = findViewById(R.id.available_btn);
+
+        not_available_btn = findViewById(R.id.not_available_btn);
 
         url_list = new ArrayList<>();
 
@@ -54,7 +61,9 @@ public class MyProductDetailsActivity extends AppCompatActivity {
         quantity.setText(getIntent().getStringExtra("productquantity"));
         location.setText(getIntent().getStringExtra("productloc"));
         Button delete = findViewById(R.id.delete);
-        delete.setOnClickListener(new View.OnClickListener() {
+        delete.setOnClickListener(new View.OnClickListener()
+
+        {
             @Override
             public void onClick(View view)
             {
@@ -102,6 +111,11 @@ public class MyProductDetailsActivity extends AppCompatActivity {
     }
 
     public void delete(View view) {
+
+
+    }
+
+    public void update_availability(View view) {
 
 
     }

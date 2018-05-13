@@ -17,12 +17,14 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class signup extends AppCompatActivity {
+public class signup extends AppCompatActivity
+{
     String emails, passs, names, locations, genders, cpasss;
     EditText email, pass, name, location, cpass;
-RadioGroup gender;
+    RadioGroup gender;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,7 +37,8 @@ RadioGroup gender;
         cpass=findViewById(R.id.cpass);
     }
 
-    public void Signup(View view) {
+    public void Signup(View view)
+    {
         names = name.getText().toString();
         locations = location.getText().toString();
         genders =((RadioButton)findViewById(gender.getCheckedRadioButtonId())).getText().toString();
@@ -87,7 +90,8 @@ RadioGroup gender;
 
         OnCompleteListener<AuthResult> listener = new OnCompleteListener<AuthResult>() {
             @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
+            public void onComplete(@NonNull Task<AuthResult> task)
+            {
                 progress_bar.hide();
 
                 createaccount data = new createaccount(names, locations, genders);
@@ -96,9 +100,8 @@ RadioGroup gender;
                     String email = f_auth.getCurrentUser().getEmail().replace(".", "");
                     database.getReference().child("users").child(email).setValue(data);
                     Toast.makeText(signup.this, "done", Toast.LENGTH_SHORT).show();
-                    Intent i = new Intent(signup.this, Home.class);
-                    startActivity(i);
-                    finish();
+
+                    sendVerificationEmail();
                 } else {
                     Toast.makeText(signup.this, "error try again", Toast.LENGTH_SHORT).show();
                 }
@@ -108,5 +111,39 @@ RadioGroup gender;
         f_auth.createUserWithEmailAndPassword(emails, passs).addOnCompleteListener(listener);
 
 
+    }
+
+    private void sendVerificationEmail()
+    {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        user.sendEmailVerification()
+                .addOnCompleteListener(new OnCompleteListener<Void>()
+                {
+                    @Override
+                    public void onComplete(@NonNull Task<Void> task)
+                    {
+                        if (task.isSuccessful())
+                        {
+                            // email sent
+
+                            // after email is sent just logout the user and finish this activity
+                            FirebaseAuth.getInstance().signOut();
+                            startActivity(new Intent(signup.this, slide_layout.class));
+                            finish();
+                        }
+                        else
+                        {
+                            // email not sent, so display message and restart the activity or do whatever you wish to do
+
+                            //restart this activity
+                            overridePendingTransition(0, 0);
+                            finish();
+                            overridePendingTransition(0, 0);
+                            startActivity(getIntent());
+
+                        }
+                    }
+                });
     }
 }

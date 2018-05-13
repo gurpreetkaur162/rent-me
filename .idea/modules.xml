@@ -3,7 +3,9 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
       <module fileurl="file://$PROJECT_DIR$/rename.iml" filepath="$PROJECT_DIR$/rename.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rent-me.iml" filepath="$PROJECT_DIR$/rent-me.iml" />
     </modules>
   </component>
 </project>
